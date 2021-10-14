@@ -1,5 +1,7 @@
 <?php
 
+// Test
+
 use Illuminate\Support\Facades\{
     Auth,
     Route
