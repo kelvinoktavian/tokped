@@ -130,8 +130,8 @@
                     <small class="d-block pb-2 text-muted">0 Sold |
                         {{ $product->reviews()->count(); }} @if($product->reviews()->count() <= 1) Review @else Reviews
                             @endif</small> <a href="{{ route('show_product', $product->slug) }}"
-                            class="btn btn-sm btn-dark btn-pill font-weight-bold">
-                            Detail</a>
+                                class="btn btn-sm btn-dark btn-pill font-weight-bold">
+                                Detail</a>
                             <form class="d-inline" action="{{ route('cart.store') }}" method="POST">
                                 @csrf
                                 <input name="slug" type="hidden" value="{{ $product->slug }}">
