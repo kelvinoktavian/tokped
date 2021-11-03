@@ -17,7 +17,17 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::where([
+        $users = User::select(
+            'id',
+            'name',
+            'email',
+            'username',
+            'image_path',
+            'phone',
+            'is_admin',
+            'last_seen',
+            'created_at'
+        )->where([
             ['name', '!=', NULL],
             [function ($query) use ($request) {
                 if ($search = $request->search) {

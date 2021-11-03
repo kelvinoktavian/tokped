@@ -63,8 +63,8 @@
         </div>
 
         <div class="my-3">
-          <p><strong>Brand: </strong><a href="/product?brand={{ $product->brand->id }}"
-              class="text-primary"><span>{{ $product->brand->name }}</span></a></p>
+          <p><strong>Brand: </strong><a href="/product?brand={{ $product->brand->id }}" class="text-primary"><span>{{
+                $product->brand->name }}</span></a></p>
           <p><strong>Category: </strong><a href="/product?category={{ $product->category->id }}"
               class="text-primary"><span>{{ $product->category->name }}</span></a></p>
           <p><strong>Capacity: </strong>{{ $product->voltage }} V | {{ $product->capacity }} Ah</p>
@@ -156,8 +156,8 @@
         class="d-block" style="object-fit: cover">
       <div class="card-body">
         <div class="mb-3" style="border-bottom: 0.2px solid rgb(230, 230, 230)">
-          <h5><a href="{{ route('show_product', $product->slug) }}"
-              class="text-dark text-decoration-none hovered">{{ $product->name }}</a>
+          <h5><a href="{{ route('show_product', $product->slug) }}" class="text-dark text-decoration-none hovered">{{
+              $product->name }}</a>
           </h5>
           <div class="d-flex justify-content-between">
             <p class="small text-muted">Rp. {{ number_format($product->price) }}</p>
@@ -180,9 +180,9 @@
         <small class="d-block pb-2 text-danger">Product is out of stock.</small>
         @endif
         <small class="d-block pb-2 text-muted">0 Sold |
-          {{ $product->reviews()->count(); }} @if($product->reviews()->count() <= 1) Review @else Reviews @endif</small>
+          {{ $product->reviews->count(); }} @if($product->reviews->count() <= 1) Review @else Reviews @endif</small>
             <a href="{{ route('show_product', $product->slug) }}" class="btn btn-sm btn-dark btn-pill font-weight-bold">
-            Detail</a>
+              Detail</a>
             <form class="d-inline" action="{{ route('cart.store') }}" method="POST">
               @csrf
               <input name="slug" type="hidden" value="{{ $product->slug }}">

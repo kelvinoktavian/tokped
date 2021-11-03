@@ -17,7 +17,12 @@ class BrandController extends Controller
      */
     public function index(Request $request)
     {
-        $brands = Brand::where([
+        $brands = Brand::select(
+            'id',
+            'slug',
+            'name',
+            'image_path'
+        )->where([
             ['name', '!=', NULL],
             [function ($query) use ($request) {
                 if ($search = $request->search) {
@@ -88,7 +93,12 @@ class BrandController extends Controller
      */
     public function edit($slug)
     {
-        $brand = Brand::firstWhere('slug', $slug);
+        $brand = Brand::select(
+            'id',
+            'slug',
+            'name',
+            'image_path'
+        )->firstWhere('slug', $slug);
 
         if ($brand == NULL) {
             return redirect()

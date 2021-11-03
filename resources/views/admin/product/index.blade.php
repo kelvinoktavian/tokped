@@ -54,18 +54,18 @@
                 <label for="sortBy">Sort By</label>
                 <select name="sortBy" id="sortBy" class="form-control">
                   <option value="">--Sort By--</option>
-                  <option value="latest" {{ (request('sortBy') == 'latest') ? 'selected' : '' }}>Latest</option>
-                  <option value="highestPrice" {{ (request('sortBy') == 'highestPrice') ? 'selected' : '' }}>Highest
+                  <option value="latest" {{ (request('sortBy')=='latest' ) ? 'selected' : '' }}>Latest</option>
+                  <option value="highestPrice" {{ (request('sortBy')=='highestPrice' ) ? 'selected' : '' }}>Highest
                     Price
                   </option>
-                  <option value="lowestPrice" {{ (request('sortBy') == 'lowestPrice') ? 'selected' : '' }}>Lowest Price
+                  <option value="lowestPrice" {{ (request('sortBy')=='lowestPrice' ) ? 'selected' : '' }}>Lowest Price
                   </option>
-                  <option value="highestStock" {{ (request('sortBy') == 'highestStock') ? 'selected' : '' }}>Highest
+                  <option value="highestStock" {{ (request('sortBy')=='highestStock' ) ? 'selected' : '' }}>Highest
                     Stock
                   </option>
-                  <option value="lowestStock" {{ (request('sortBy') == 'lowestStock') ? 'selected' : '' }}>Lowest Stock
+                  <option value="lowestStock" {{ (request('sortBy')=='lowestStock' ) ? 'selected' : '' }}>Lowest Stock
                   </option>
-                  <option value="bestSeller" {{ (request('sortBy') == 'bestSeller') ? 'selected' : '' }}>Best Seller
+                  <option value="bestSeller" {{ (request('sortBy')=='bestSeller' ) ? 'selected' : '' }}>Best Seller
                   </option>
                 </select>
               </div>
@@ -100,55 +100,56 @@
   <div class="card-header">
     <h3 class="card-title">{{ $title }} List</h3>
     <h3 class="card-title float-right">Showing {{ $products->total() }} @if($products->total() <= 1) result @else
-        results @endif</h3> </div> <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th width="10px" class="text-center">#</th>
-                <th width="150px" class="text-center">Image</th>
-                <th>Category</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th class="text-center">Stock</th>
-                <th class="text-center">Sold</th>
-                <th style="width: 300px">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach ($products as $product)
-              <tr class="@if($product->qty == 0) table-danger @endif">
-                <td class="text-center align-middle">{{ ($no++) + 1 }}</td>
-                <td class="text-center"><img width="150px" class="img-thumbnail"
-                    src="{{ asset('images/product/' . $product->image_path) }}" alt="{{ $product->name }}"></td>
-                <td class="align-middle">{{ $product->category->name }}</td>
-                <td class="align-middle"><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>
-                </td>
-                <td class="align-middle">Rp. {{ number_format($product->price) }}</td>
-                <td class="text-center align-middle">{{ number_format($product->qty) }}</td>
-                <td class="text-center align-middle">{{ $product->sold }}</td>
-                <td class="align-middle text-center">
-                  <a class="d-inline btn btn-info" href="{{ route('product.show', $product->slug) }}" title="Detail"><i
-                      class="bi bi-info-square"></i></a>
-                  <a class="d-inline btn btn-warning" href="{{ route('product.edit', $product->slug) }}" title="Edit"><i
-                      class="fas fa-edit"></i></a>
+        results @endif</h3>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th width="10px" class="text-center">#</th>
+            <th width="150px" class="text-center">Image</th>
+            <th>Category</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th class="text-center">Stock</th>
+            <th class="text-center">Sold</th>
+            <th style="width: 300px">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach ($products as $product)
+          <tr class="@if($product->qty == 0) table-danger @endif">
+            <td class="text-center align-middle">{{ ($no++) + 1 }}</td>
+            <td class="text-center"><img width="150px" class="img-thumbnail"
+                src="{{ asset('images/product/' . $product->image_path) }}" alt="{{ $product->name }}"></td>
+            <td class="align-middle">{{ $product->category->name }}</td>
+            <td class="align-middle"><a href="{{ route('product.show', $product->slug) }}">{{ $product->name }}</a>
+            </td>
+            <td class="align-middle">Rp. {{ number_format($product->price) }}</td>
+            <td class="text-center align-middle">{{ number_format($product->qty) }}</td>
+            <td class="text-center align-middle">{{ $product->sold }}</td>
+            <td class="align-middle text-center">
+              <a class="d-inline btn btn-info" href="{{ route('product.show', $product->slug) }}" title="Detail"><i
+                  class="bi bi-info-square"></i></a>
+              <a class="d-inline btn btn-warning" href="{{ route('product.edit', $product->slug) }}" title="Edit"><i
+                  class="fas fa-edit"></i></a>
 
-                  <form id="delete-form" class="d-inline" action="{{ route('product.destroy', $product->slug) }}"
-                    method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger show_confirm" title="Delete"><i
-                        class="fas fa-trash"></i></button>
-                  </form>
-                </td>
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
-        </div>
+              <form id="delete-form" class="d-inline" action="{{ route('product.destroy', $product->slug) }}"
+                method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger show_confirm" title="Delete"><i class="fas fa-trash"></i></button>
+              </form>
+            </td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
+    </div>
   </div>
 
-  <div class="card-footer clearfix">
+  <div class=" card-footer clearfix">
     {{ $products->links() }}
   </div>
 </div>

@@ -73,7 +73,7 @@
                 <img class="rounded" width="400px" src="{{ asset('/images/img/img1.jpg') }}" alt="" />
             </div>
             <div class="col-md p-5">
-                <h2>What is tokped?</h2>
+                <h2>What is Souvenir BOSS?</h2>
                 <p>
                     SouvenirBOSS is a company engaged in services, more specifically
                     printing services. The main focus of BOSS SouvenirBOSS is the sale of
@@ -128,7 +128,7 @@
                     <small class="d-block pb-2 text-danger">Product is out of stock.</small>
                     @endif
                     <small class="d-block pb-2 text-muted">0 Sold |
-                        {{ $product->reviews()->count(); }} @if($product->reviews()->count() <= 1) Review @else Reviews
+                        {{ $product->reviews->count(); }} @if($product->reviews->count() <= 1) Review @else Reviews
                             @endif</small> <a href="{{ route('show_product', $product->slug) }}"
                                 class="btn btn-sm btn-dark btn-pill font-weight-bold">
                                 Detail</a>

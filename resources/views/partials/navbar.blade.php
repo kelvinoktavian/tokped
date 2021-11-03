@@ -46,7 +46,7 @@ if(Auth::user() != NULL) {
         </li>
 
         <li class="nav-item mr-3">
-          <a href="{{ route('cart.index') }}" class="btn btn-dark">
+          <a href="{{ route('cart.index') }}" class="btn btn-dark" style="background-color: #000000; border: 0">
             <i class="bi bi-cart-fill text-lg"></i> <span class="badge bg-danger">{{ $total_cart }}</span>
           </a>
         </li>

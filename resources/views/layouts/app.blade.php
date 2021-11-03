@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'tokped') }} | {{ $title }}</title>
+    {{-- <title>{{ config('app.name', 'tokped') }} | {{ $title }}</title> --}}
+    <title>Souvenir BOSS | {{ $title }}</title>
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
@@ -26,7 +27,7 @@
         @include('partials.navbar')
 
         <main>
-            <div class="content">
+            <div class="my-5 container">
                 @yield('content')
             </div>
         </main>

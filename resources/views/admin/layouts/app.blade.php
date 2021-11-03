@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ config('app.name', 'tokped') }} | {{ $title }}</title>
+  {{-- <title>{{ config('app.name', 'tokped') }} | {{ $title }}</title> --}}
+  <title>Souvenir BOSS | {{ $title }}</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet"
@@ -50,7 +51,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <a href="{{ route('admin.home') }}" class="brand-link">
         <img src="{{ asset('images/img/logo.png') }}" alt="tokped" class="brand-image img-circle">
-        <span class="brand-text font-weight-light">{{ config('app.name', 'tokped') }}</span>
+        <span class="brand-text font-weight-light">Souvenir BOSS</span>
       </a>
 
       @include('admin.partials.sidebar')

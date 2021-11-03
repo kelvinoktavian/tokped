@@ -22,7 +22,8 @@
 
           <div class="form-group">
             <label for="title">Title
-              <x-asterisk-required-symbol /></label>
+              <x-asterisk-required-symbol />
+            </label>
             <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror"
               value="{{ old('title') ?? $carousel->title }}" placeholder="Title" autofocus>
             @error('title')
@@ -32,7 +33,8 @@
 
           <div class="form-group">
             <label for="body">Body
-              <x-asterisk-required-symbol /></label>
+              <x-asterisk-required-symbol />
+            </label>
             <textarea name="body" class="form-control @error('body') is-invalid @enderror" id="body" cols="30"
               rows="10">{{ old('body') ?? $carousel->body }}</textarea>
             @error('body')
@@ -42,7 +44,8 @@
 
           <div class="form-group">
             <label for="image_path">Image
-              <x-asterisk-required-symbol /></label>
+              <x-asterisk-required-symbol />
+            </label>
             <div class="input-group">
               <div class="custom-file">
                 <input type="file" accept="image/*" onchange="loadFile(event)" name="image_path" type="file"

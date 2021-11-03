@@ -139,7 +139,7 @@ class CartController extends Controller
 
     public function clear()
     {
-        $carts = auth()
+        auth()
             ->user()
             ->carts()
             ->delete();
@@ -170,7 +170,6 @@ class CartController extends Controller
         } else {
             return view('checkout.index', [
                 'title' => 'Checkout',
-
                 'user' => $user,
                 'subtotal' => $carts->sum('total_price'),
                 'carts' => $carts

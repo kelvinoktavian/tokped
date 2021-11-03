@@ -94,7 +94,7 @@
         <a href="{{ route('home') }}" class="nav-link">
           <i class="bi bi-display text-lg"></i>
           <p>
-            Public Page
+            Home Page
           </p>
         </a>
       </li>

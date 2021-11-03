@@ -11,12 +11,12 @@ class PageController extends Controller
     {
         return view('admin.index', [
             'title' => 'Dashboard',
-            'total_brand' => DB::table('brands')->count(),
-            'total_category' => DB::table('categories')->count(),
-            'total_product' => DB::table('products')->count(),
-            'total_order' => DB::table('orders')->count(),
-            'total_order_status' => DB::table('order_statuses')->count(),
-            'total_user' => DB::table('users')->count(),
+            'total_brand' => DB::table('brands')->count('id'),
+            'total_category' => DB::table('categories')->count('id'),
+            'total_product' => DB::table('products')->count('id'),
+            'total_order' => DB::table('orders')->count('id'),
+            'total_order_status' => DB::table('order_statuses')->count('id'),
+            'total_user' => DB::table('users')->count('id'),
         ]);
     }
 }

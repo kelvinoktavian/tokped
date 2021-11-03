@@ -17,7 +17,11 @@ class OrderStatusController extends Controller
      */
     public function index(Request $request)
     {
-        $order_statuses = OrderStatus::where([
+        $order_statuses = OrderStatus::select(
+            'id',
+            'slug',
+            'status'
+        )->where([
             ['status', '!=', NULL],
             [function ($query) use ($request) {
                 if ($search = $request->search) {
@@ -78,7 +82,11 @@ class OrderStatusController extends Controller
      */
     public function edit($slug)
     {
-        $order_status = OrderStatus::firstWhere('slug', $slug);
+        $order_status = OrderStatus::select(
+            'id',
+            'slug',
+            'status'
+        )->firstWhere('slug', $slug);
 
         if ($order_status == NULL) {
             return redirect()

@@ -17,7 +17,13 @@ class CarouselController extends Controller
     {
         return view('admin.carousel.index', [
             'title' => 'Carousels',
-            'carousels' => Carousel::latest()->get()
+            'carousels' => Carousel::latest()
+                ->get([
+                    'id',
+                    'title',
+                    'body',
+                    'image_path'
+                ])
         ]);
     }
 
@@ -64,7 +70,12 @@ class CarouselController extends Controller
      */
     public function edit($id)
     {
-        $carousel = Carousel::firstWhere('id', $id);
+        $carousel = Carousel::select(
+            'id',
+            'title',
+            'body',
+            'image_path'
+        )->firstWhere('id', $id);
 
         if ($carousel == NULL) {
             return redirect()

@@ -23,7 +23,8 @@ class ReviewController extends Controller
             ]
         );
 
-        return redirect('product/' . $request->input('slug'));
+        return redirect('product/' . $request->input('slug'))
+            ->with('success', 'Your review has been published successfully');
     }
 
     /**

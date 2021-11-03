@@ -38,7 +38,7 @@ $categories = Category::all()->sortByDesc('created_at')->take(3);
         <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
           <a href="{{ route('home') }}" class="text-light hovered">
             <h6 class="text-uppercase fw-bold mb-4">
-              tokped
+              Souvenir BOSS
             </h6>
           </a>
           <p>
@@ -53,8 +53,8 @@ $categories = Category::all()->sortByDesc('created_at')->take(3);
           </h6>
           @foreach ($categories as $category)
           <p>
-            <a href="/product?category={{ $category->id }}"
-              class="text-light text-decoration-none hovered">{{ $category->name }}</a>
+            <a href="/product?category={{ $category->id }}" class="text-light text-decoration-none hovered">{{
+              $category->name }}</a>
           </p>
           @endforeach
         </div>
@@ -64,9 +64,9 @@ $categories = Category::all()->sortByDesc('created_at')->take(3);
             Contact Us
           </h6>
           <p><i class="fas fa-map-marker-alt me-2"></i> Bandung, West Java, Indonesia</p>
-          <a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=tokped@gmail.com"
+          <a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=souvenirboss@gmail.com"
             class="text-light hovered d-block mb-3"><i class="fas fa-envelope"></i>
-            tokped@gmail.com</a>
+            souvenirboss@gmail.com</a>
           <a href="https://api.whatsapp.com/send?phone=+62895345228535" target="_blank"
             class="text-light hovered d-block"><i class="fas fa-phone"></i> +62 895345228535</a>
         </div>
@@ -77,7 +77,7 @@ $categories = Category::all()->sortByDesc('created_at')->take(3);
 
   <div class="text-center pt-2">
     <p class="text-center">Copyright &copy; {{ date("Y") }} <strong><a href="{{ route('home') }}"
-          class="text-reset text-decoration-none hovered">tokped</a></strong>.
+          class="text-reset text-decoration-none hovered">Souvenir BOSS</a></strong>.
       All rights reserved.</p>
   </div>
 </footer>

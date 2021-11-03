@@ -16,7 +16,10 @@ class ProductImageController extends Controller
      */
     public function index($slug)
     {
-        $product = Product::firstWhere('slug', $slug);
+        $product = Product::select(
+            'id',
+            'slug',
+        )->firstWhere('slug', $slug);
 
         if ($product == NULL) {
             return redirect()

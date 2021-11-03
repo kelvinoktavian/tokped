@@ -18,8 +18,13 @@ class HomeController extends Controller
     {
         return view('index', [
             'title' => 'Home',
-            'carousels' => Carousel::latest()->get(),
-            'products' => Product::orderBy('created_at', 'DESC')
+            'carousels' => Carousel::latest()->get([
+                'title',
+                'body',
+                'image_path'
+            ]),
+            'products' => Product::with(['reviews'])
+                ->orderBy('created_at', 'DESC')
                 ->take(4)
                 ->get()
         ]);
@@ -102,7 +107,9 @@ class HomeController extends Controller
 
     public function showProduct($slug)
     {
-        $product = Product::where('slug', $slug)->first();
+        $product = Product::with(['reviews'])
+            ->where('slug', $slug)
+            ->first();
 
         if ($product == NULL) {
             return redirect()

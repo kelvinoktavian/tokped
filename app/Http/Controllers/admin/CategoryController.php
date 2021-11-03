@@ -17,7 +17,11 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        $categories = Category::where([
+        $categories = Category::select(
+            'id',
+            'slug',
+            'name'
+        )->where([
             ['name', '!=', NULL],
             [function ($query) use ($request) {
                 if ($search = $request->search) {
@@ -78,7 +82,11 @@ class CategoryController extends Controller
      */
     public function edit($slug)
     {
-        $category = Category::firstWhere('slug', $slug);
+        $category = Category::select(
+            'id',
+            'slug',
+            'name'
+        )->firstWhere('slug', $slug);
 
         if ($category == NULL) {
             return redirect()
