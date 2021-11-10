@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
-use App\Models\{Brand, Carousel, Review, Product, Category};
+use App\Models\{Carousel, Review, Product, Category};
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -45,12 +45,6 @@ class HomeController extends Controller
                     $query
                     ->from('products')
                     ->where('name', 'LIKE', '%' . $request->search . '%') : '';
-            })
-            ->where(function ($query) use ($request) {
-                return $request->brand ?
-                    $query
-                    ->from('products')
-                    ->where('brand_id', $request->brand) : '';
             })
             ->where(function ($query) use ($request) {
                 return $request->category ?
@@ -98,7 +92,6 @@ class HomeController extends Controller
 
         return view('product.index', [
             'title' => 'Products',
-            'brands' => Brand::all(),
             'categories' => Category::all(),
             'products' => $products,
             'check_wishlist' => $check_wishlist
@@ -126,7 +119,6 @@ class HomeController extends Controller
 
         $related_products = Product::inRandomOrder()
             ->where('id', '!=', $product->id)
-            ->where('brand_id', '=', $product->brand_id)
             ->where('category_id', '=', $product->category_id)
             ->where('qty', '!=', 0)
             ->limit(4)

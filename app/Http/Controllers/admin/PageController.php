@@ -11,7 +11,7 @@ class PageController extends Controller
     {
         return view('admin.index', [
             'title' => 'Dashboard',
-            'total_brand' => DB::table('brands')->count('id'),
+            'total_carousel' => DB::table('carousels')->count('id'),
             'total_category' => DB::table('categories')->count('id'),
             'total_product' => DB::table('products')->count('id'),
             'total_order' => DB::table('orders')->count('id'),

@@ -19,22 +19,7 @@
           </div>
 
           <div class="row">
-            <div class="col-4">
-              <div class="form-group">
-                <label for="brand">Brand</label>
-                <select name="brand" id="brand" class="form-control">
-                  <option value="">--Choose Brand--</option>
-                  @if ($brands->count() != 0)
-                  @foreach($brands as $brand)
-                  <option value="{{ $brand->id }}" {{ ($brand->id == request('brand')) ? 'selected' : '' }}>
-                    {{ $brand->name }}
-                  </option>
-                  @endforeach
-                  @endif
-                </select>
-              </div>
-            </div>
-            <div class="col-4">
+            <div class="col-6">
               <div class="form-group">
                 <label for="category">Category</label>
                 <select name="category" id="category" class="form-control">
@@ -49,7 +34,7 @@
                 </select>
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-6">
               <div class="form-group">
                 <label for="sortBy">Sort By</label>
                 <select name="sortBy" id="sortBy" class="form-control">

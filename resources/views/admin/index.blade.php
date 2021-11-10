@@ -13,14 +13,14 @@
       <div class="col-6">
         <div class="small-box bg-info">
           <div class="inner">
-            <h3>{{ $total_brand }}</h3>
+            <h3>{{ $total_carousel }}</h3>
 
-            <h4>Brand</h4>
+            <h4>Carousel</h4>
           </div>
           <div class="icon">
-            <i class="bi bi-spellcheck"></i>
+            <i class="bi bi-card-image"></i>
           </div>
-          <a href="{{ route('brand.index') }}" class="small-box-footer">More info <i
+          <a href="{{ route('carousel.index') }}" class="small-box-footer">More info <i
               class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>

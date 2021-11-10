@@ -32,15 +32,6 @@
       </li>
 
       <li class="nav-item">
-        <a href="{{ route('brand.index') }}" class="nav-link {{ request()->is('admin/brand*') ? 'active' : '' }}">
-          <i class="bi bi-spellcheck text-lg"></i>
-          <p>
-            Brand
-          </p>
-        </a>
-      </li>
-
-      <li class="nav-item">
         <a href="{{ route('category.index') }}" class="nav-link {{ request()->is('admin/category*') ? 'active' : '' }}">
           <i class="bi bi-card-list text-lg"></i>
           <p>

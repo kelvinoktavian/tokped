@@ -63,11 +63,8 @@
         </div>
 
         <div class="my-3">
-          <p><strong>Brand: </strong><a href="/product?brand={{ $product->brand->id }}" class="text-primary"><span>{{
-                $product->brand->name }}</span></a></p>
           <p><strong>Category: </strong><a href="/product?category={{ $product->category->id }}"
               class="text-primary"><span>{{ $product->category->name }}</span></a></p>
-          <p><strong>Capacity: </strong>{{ $product->voltage }} V | {{ $product->capacity }} Ah</p>
           <p><strong>Weight: </strong>{{ number_format($product->weight) }} gr</p>
           <strong>Description</strong>
           <p>{!! $product->description !!}</p>

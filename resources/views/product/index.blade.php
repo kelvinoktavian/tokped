@@ -37,22 +37,6 @@ if(auth()->user() != NULL) {
           </div>
 
           <div class="form-group">
-            <label for="brand">Brand</label>
-            <select name="brand" id="brand" class="form-control">
-              <option value="">--Choose Brand--</option>
-
-              @if ($brands->count() != 0)
-              @foreach($brands as $brand)
-              <option value="{{ $brand->id }}" {{ ($brand->id == request('brand')) ? 'selected' : '' }}>
-                {{ $brand->name }}
-              </option>
-              @endforeach
-              @endif
-
-            </select>
-          </div>
-
-          <div class="form-group">
             <label for="category">Category</label>
             <select name="category" id="category" class="form-control">
               <option value="">--Choose Category--</option>

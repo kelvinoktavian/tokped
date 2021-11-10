@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
-use App\Models\{Product, Brand, Category};
+use App\Models\{Product, Category};
 
 class ProductController extends Controller
 {
@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $products = Product::with([
-            'brand', 'category'
+            'category'
         ])
             ->where([
                 ['name', '!=', NULL],
@@ -26,13 +26,6 @@ class ProductController extends Controller
                     if ($search = $request->search) {
                         $query
                             ->orWhere('name', 'LIKE', '%' . $search . '%')
-                            ->get();
-                    }
-                }],
-                [function ($query) use ($request) {
-                    if ($brand = $request->brand) {
-                        $query
-                            ->orWhere('brand_id', $brand)
                             ->get();
                     }
                 }],
@@ -69,7 +62,6 @@ class ProductController extends Controller
         return view('admin.product.index', [
             'title' => 'Products',
             'products' => $products,
-            'brands' => Brand::all(),
             'categories' => Category::all()
         ])
             ->with('no', ($request->input('page', 1) - 1) * 10);
@@ -84,7 +76,6 @@ class ProductController extends Controller
     {
         return view('admin.product.create', [
             'title' => 'Add Product',
-            'brands' => Brand::all(),
             'categories' => Category::all(),
         ]);
     }
@@ -109,13 +100,10 @@ class ProductController extends Controller
         // If valid
         Product::create(
             [
-                'brand_id' => $request->input('brand_id'),
                 'category_id' => $request->input('category_id'),
                 'slug' => Str::slug($request->input('name')),
                 'name' => $request->input('name'),
                 'price' => $request->input('price'),
-                'voltage' => $request->input('voltage'),
-                'capacity' => $request->input('capacity'),
                 'weight' => $request->input('weight'),
                 'description' => $request->input('description'),
                 'qty' => $request->input('qty'),
@@ -169,7 +157,6 @@ class ProductController extends Controller
         return view('admin.product.edit', [
             'title' => 'Edit Product',
             'product' => $product,
-            'brands' => Brand::all(),
             'categories' => Category::all(),
         ]);
     }
@@ -198,12 +185,9 @@ class ProductController extends Controller
         }
 
         $this->validate($request, [
-            'brand_id' => 'required',
             'category_id' => 'required',
             'name' => $rule_name,
             'price' => 'required|integer|min:1',
-            'voltage' => 'required|integer|min:1',
-            'capacity' => 'required|integer|min:1',
             'weight' => 'nullable|integer|min:1',
             'qty' => 'required|integer|min:1',
             'image_path' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -220,13 +204,10 @@ class ProductController extends Controller
             // Update data
             $product->update(
                 [
-                    'brand_id' => $request->input('brand_id'),
                     'category_id' => $request->input('category_id'),
                     'slug' => Str::slug($request->input('name')),
                     'name' => $request->input('name'),
                     'price' => $request->input('price'),
-                    'voltage' => $request->input('voltage'),
-                    'capacity' => $request->input('capacity'),
                     'weight' => $request->input('weight'),
                     'description' => $request->input('description'),
                     'qty' => $request->input('qty'),
@@ -237,13 +218,10 @@ class ProductController extends Controller
             // Update data
             $product->update(
                 [
-                    'brand_id' => $request->input('brand_id'),
                     'category_id' => $request->input('category_id'),
                     'slug' => Str::slug($request->input('name')),
                     'name' => $request->input('name'),
                     'price' => $request->input('price'),
-                    'voltage' => $request->input('voltage'),
-                    'capacity' => $request->input('capacity'),
                     'weight' => $request->input('weight'),
                     'description' => $request->input('description'),
                     'qty' => $request->input('qty')

@@ -20,27 +20,11 @@
           @csrf
 
           <div class="row">
-            <div class="col-6">
-              <div class="form-group">
-                <label for="brand_id">Brand
-                  <x-asterisk-required-symbol /></label>
-                <select name="brand_id" id="brand_id" class="form-control @error('brand_id') is-invalid @enderror"
-                  autofocus>
-                  <option value="">--Choose Brand--</option>
-                  @foreach($brands as $brand)
-                  <option value="{{ $brand->id }}" @if (old('brand_id')==$brand->id ) selected="selected" @endif>
-                    {{ $brand->name }}</option>
-                  @endforeach
-                </select>
-                @error('brand_id')
-                <small class="text-danger">{{ $message }}</small>
-                @enderror
-              </div>
-            </div>
-            <div class="col-6">
+            <div class="col-12">
               <div class="form-group">
                 <label for="category_id">Category
-                  <x-asterisk-required-symbol /></label>
+                  <x-asterisk-required-symbol />
+                </label>
                 <select name="category_id" id="category_id"
                   class="form-control @error('category_id') is-invalid @enderror">
                   <option value="">--Choose Category--</option>
@@ -58,7 +42,8 @@
 
           <div class="form-group">
             <label for="name">Name
-              <x-asterisk-required-symbol /></label>
+              <x-asterisk-required-symbol />
+            </label>
             <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror"
               value="{{ old('name') }}" placeholder="Product name">
             @error('name')
@@ -69,7 +54,8 @@
           <div class="row">
             <div class="col-6">
               <label for="price">Price
-                <x-asterisk-required-symbol /></label>
+                <x-asterisk-required-symbol />
+              </label>
               <div class="input-group mb-3">
                 <span class="input-group-text">Rp.</span>
                 <input min="1" type="number" name="price" id="price"
@@ -85,7 +71,8 @@
             <div class="col-6">
               <div class="form-group">
                 <label for="qty">Qty
-                  <x-asterisk-required-symbol /></label>
+                  <x-asterisk-required-symbol />
+                </label>
                 <input min="1" type="number" name="qty" id="qty" class="form-control @error('qty') is-invalid @enderror"
                   value="{{ old('qty') }}" placeholder="Qty">
                 @error('qty')
@@ -96,37 +83,7 @@
           </div>
 
           <div class="row">
-            <div class="col-4">
-              <label for="voltage">Voltage
-                <x-asterisk-required-symbol /></label>
-              <div class="input-group mb-3">
-                <input min="1" type="number" name="voltage" id="voltage"
-                  class="form-control @error('voltage') is-invalid @enderror" value="{{ old('voltage') }}"
-                  placeholder="Voltage">
-                <span class="input-group-text">V</span>
-                @error('voltage')
-                <div class="invalid-feedback">
-                  {{ $message }}
-                </div>
-                @enderror
-              </div>
-            </div>
-            <div class="col-4">
-              <label for="capacity">Capacity
-                <x-asterisk-required-symbol /></label>
-              <div class="input-group mb-3">
-                <input min="1" type="number" name="capacity" id="capacity"
-                  class="form-control @error('capacity') is-invalid @enderror" value="{{ old('capacity') }}"
-                  placeholder="Capacity">
-                <span class="input-group-text">Ah</span>
-                @error('capacity')
-                <div class="invalid-feedback">
-                  {{ $message }}
-                </div>
-                @enderror
-              </div>
-            </div>
-            <div class="col-4">
+            <div class="col-12">
               <label for="weight">Weight</label>
               <div class="input-group mb-3">
                 <input min="1" type="number" name="weight" id="weight"

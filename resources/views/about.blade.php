@@ -30,12 +30,6 @@
     </button>
 
     <div class="card-body">
-      {{-- @if (session('status'))
-      <div class="alert alert-success" role="alert">
-        {{ session('status') }}
-      </div>
-      @endif --}}
-
       <section id="aboutus-services">
         <div class="text-section-title text-center">Our Services</div>
 
@@ -87,12 +81,12 @@
               expedita hic aperiam dicta incidunt quisquam?</p>
           </div>
         </div>
-
-
       </section>
+    </div>
+  </div>
+</section>
 
 
 
 
-
-      @endsection
+@endsection

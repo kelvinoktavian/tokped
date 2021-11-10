@@ -23,7 +23,6 @@ use App\Http\Controllers\{
 use App\Http\Controllers\admin\{
     PageController,
     UserController,
-    BrandController,
     OrderController,
     ProductController,
     ProductImageController,
@@ -147,14 +146,14 @@ Route::group([
     });
 
     // Brand Route
-    Route::group(['prefix' => 'brand', 'as' => 'brand.'], function () {
-        Route::get('/', [BrandController::class, 'index'])->name('index');
-        Route::get('/create', [BrandController::class, 'create'])->name('create');
-        Route::post('/', [BrandController::class, 'store'])->name('store');
-        Route::get('/{brand}/edit', [BrandController::class, 'edit'])->name('edit');
-        Route::patch('/{brand}', [BrandController::class, 'update'])->name('update');
-        Route::delete('/{brand}', [BrandController::class, 'destroy'])->name('destroy');
-    });
+    // Route::group(['prefix' => 'brand', 'as' => 'brand.'], function () {
+    //     Route::get('/', [BrandController::class, 'index'])->name('index');
+    //     Route::get('/create', [BrandController::class, 'create'])->name('create');
+    //     Route::post('/', [BrandController::class, 'store'])->name('store');
+    //     Route::get('/{brand}/edit', [BrandController::class, 'edit'])->name('edit');
+    //     Route::patch('/{brand}', [BrandController::class, 'update'])->name('update');
+    //     Route::delete('/{brand}', [BrandController::class, 'destroy'])->name('destroy');
+    // });
 
     // Category Route
     Route::group(['prefix' => 'category', 'as' => 'category.'], function () {
