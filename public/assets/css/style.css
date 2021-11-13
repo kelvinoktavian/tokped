@@ -53,10 +53,11 @@ a.btn-custom-primary:hover {
 
 .btn-custom-primary {
     border-radius: 30px;
-    background-color: #212529;
+    background-color: #000000;
     font-weight: bold;
     color: #fff;
     padding: 10px 30px;
+    text-decoration: none;
 }
 
 .btn-custom-primary:hover {
@@ -369,3 +370,27 @@ footer {
     object-fit: cover;
     border-radius: 12px 0 0 12px;
 }
+
+
+/* home */
+#about img{
+    object-fit: contain;
+    height: 600px;
+
+}
+
+#about col1{
+    flex:1;
+}
+#about col2{
+    flex:1.5;
+}
+
+@media only screen and (max-width: 992px) {
+    #about img{
+        width: 300px;
+        height: 300px;
+        object-fit:fill;
+    }
+}
+

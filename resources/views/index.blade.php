@@ -62,18 +62,18 @@
         with the Parthenon inside.)
     </p>
 
-    <a class="btn btn-sm text-decoration-none btn-custom-primary my-3" href="{{ route('product') }}">Shop Now</a>
+    <a class="btn btn-sm btn-custom-primary my-3" href="{{ route('product') }}">Shop Now</a>
 </section>
 
 <!-- About -->
-<section id="about" class="p-5">
-    <div class="container">
-        <div class="row align-items-center justify-content-between">
-            <div class="col-md">
-                <img class="rounded" width="400px" src="{{ asset('/images/img/img1.jpg') }}" alt="" />
+<section id="about" class="bg-black">
+    <div class="content">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="col1">
+                <img class=""src="{{ asset('/images/img/img1.jpg') }}" alt="" />
             </div>
-            <div class="col-md p-5">
-                <h2>What is Souvenir BOSS?</h2>
+            <div class="col2 p-5">
+                <h2 class="mb-4">What is Souvenir BOSS?</h2>
                 <p>
                     SouvenirBOSS is a company engaged in services, more specifically
                     printing services. The main focus of BOSS SouvenirBOSS is the sale of
@@ -85,12 +85,11 @@
         </div>
     </div>
 </section>
-
-<section id="" class="p-5">
-    <div class="container">
-        <div class="row align-items-center justify-content-between">
-            <div class="col-md p-5">
-                <h2>What we offer?</h2>
+<section id="about">
+    <div class="content">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="col2 p-5">
+                <h2 class="mb-4">What we offer?</h2>
                 <p>
                     SouvenirBOSS always helps consumers in the design process from start to
                     finish, converting images or photos into sketches and providing mockup
@@ -98,12 +97,13 @@
                     souvenirs that will be received.
                 </p>
             </div>
-            <div class="col-md">
-                <img class="rounded" width="400px" src="{{ asset('/images/img/img2.jpg') }}" alt="" />
+            <div class="col1">
+                <img class=""src="{{ asset('/images/img/img2.jpg') }}" alt="" />
             </div>
         </div>
     </div>
 </section>
+
 <!-- End About -->
 
 <section class="p-5 text-center">
