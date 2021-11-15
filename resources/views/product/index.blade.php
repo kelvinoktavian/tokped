@@ -22,7 +22,7 @@ if(auth()->user() != NULL) {
         @endif
   </div>
 </div>
-<div class="row">
+<div class="row p-5">
   <div class="col-md-3">
     <div class="card">
       <div class="card-header bg-dark font-weight-bold">
@@ -78,16 +78,25 @@ if(auth()->user() != NULL) {
               </option>
             </select>
           </div>
-
-          <button class="btn btn-dark btn-sm rounded-pill font-weight-bold" type="submit">
-            <i class="bi bi-search"></i> Search
-          </button>
-
-          <a href="{{ route('product') }}">
-            <button class="btn btn-dark btn-sm rounded-pill font-weight-bold" type="button">
-              <i class="fas fa-sync-alt"></i> Reset
+          <div class="row text-center">
+            <div class="col">
+              <a href="{{ route('product') }}">
+              <button class="btn btn-sm btn-custom-primary" type="button">
+                <i class="fas fa-sync-alt"></i> Reset
+              </button>
+            </a>
+            </div>
+            <div class="col">
+              <button class="btn btn-sm btn-custom-primary" type="submit">
+              <i class="bi bi-search"></i> Search
             </button>
-          </a>
+            </div>
+            
+            
+
+            
+          </div>
+          
 
         </form>
       </div>
@@ -98,7 +107,7 @@ if(auth()->user() != NULL) {
     @if ($products->count() != 0)
     <div class="row">
       @foreach ($products as $product)
-      <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+      <div class="col-lg-4 col-md-6 col-sm-6 mb-4 px-4">
         <div class="card rounded-3 border-0">
           <img src="{{ asset('images/product/' . $product->image_path) }}" alt="{{ $product->name }}" width="100%"
             class="d-block" style="object-fit: cover">
@@ -129,16 +138,25 @@ if(auth()->user() != NULL) {
             @endif
             <small class="d-block pb-2 text-muted">{{ $product->sold }} Sold |
               {{ $product->reviews->count(); }} @if($product->reviews->count() <= 1) Review @else Reviews @endif</small>
-                <a href="{{ route('show_product', $product->slug) }}"
-                  class="btn btn-sm btn-dark btn-pill font-weight-bold">Detail</a>
-                <form class="d-inline" action="{{ route('cart.store') }}" method="POST">
+              <div class="row text-center">
+                <div class="col">
+                  <a href="{{ route('show_product', $product->slug) }}"
+                  class="btn btn-sm btn-custom-primary">Detail</a>
+                
+                </div>
+                <div class="col">
+                  <form class="d-inline" action="{{ route('cart.store') }}" method="POST">
                   @csrf
                   <input name="slug" type="hidden" value="{{ $product->slug }}">
                   <button
-                    class="btn btn-sm btn-dark btn-pill {{ $product->qty == 0 ? 'disabled' : '' }} font-weight-bold">
-                    <i class="bi bi-cart-plus-fill"></i> Add to cart
+                    class="btn btn-sm btn-custom-primary2 {{ $product->qty == 0 ? 'disabled' : '' }}">
+                    <i class="bi bi-cart-plus-fill"></i>
                   </button>
                 </form>
+                </div>
+              </div>
+                
+                  
           </div>
         </div>
       </div>
@@ -149,9 +167,10 @@ if(auth()->user() != NULL) {
       No product found.
     </x-no-data-card>
     @endif
-    <div class="d-flex justify-content-center">
-      {{ $products->links() }}
-    </div>
+    
+  </div>
+  <div class="d-flex justify-content-center">
+    {{ $products->links() }}
   </div>
 </div>
 

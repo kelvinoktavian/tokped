@@ -42,7 +42,7 @@ hr {
 a.hovered:hover {
     color: #1d8afe !important;
 }
-
+/* button */
 a.btn-custom-primary:hover {
     color: #fff;
 }
@@ -60,7 +60,16 @@ a.btn-custom-primary:hover {
     text-decoration: none;
 }
 
-.btn-custom-primary:hover {
+.btn-custom-primary2 {
+    border-radius: 100px;
+    background-color: #000000;
+    font-weight: bold;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.btn-custom-primary:hover,.btn-custom-primary2:hover {
     opacity: 0.8;
 }
 
@@ -68,6 +77,10 @@ a.btn-custom-primary:hover {
     color: #fff;
     /* 01E675 */
     background-color: #25d366;
+}
+
+.btn-dark {
+    background-color: #000000 !important;
 }
 
 /* nav.navbar {
