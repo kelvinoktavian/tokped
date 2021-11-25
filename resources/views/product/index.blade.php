@@ -113,38 +113,29 @@ if(auth()->user() != NULL) {
             class="d-block" style="object-fit: cover">
           <div class="card-body">
             <div class="mb-3" style="border-bottom: 0.2px solid rgb(230, 230, 230)">
-              <h5 class="font-weight-bold"><a href="{{ route('show_product', $product->slug) }}"
-                  class="text-dark text-decoration-none hovered">{{ $product->name }}</a>
+              <h5 class=""><a href="{{ route('show_product', $product->slug) }}"
+                  class="text-card-title">{{ $product->name }}</a>
               </h5>
               <div class="d-flex justify-content-between">
                 <p class="text-muted text-md">Rp. {{ number_format($product->price) }}</p>
-                <form class="d-block" action="/wishlist" method="POST">
-                  @csrf
-                  @if(in_array($product->id, $check_wishlist))
-                  @method('DELETE')
-                  @endif
-                  <input name="slug" type="hidden" value="{{ $product->slug }}">
-                  <button class="btn btn-sm btn-light font-weight-bold">
-                    <i
-                      class="bi bi-heart-fill @if(!in_array($product->id, $check_wishlist)) text-secondary @else text-danger @endif"></i>
-                  </button>
-                </form>
               </div>
             </div>
             @if ($product->qty > 0)
-            <small class="d-block pb-2 text-info">Stock: {{ number_format($product->qty) }}</small>
+            <small class="d-block pb-2 text-card-stock">Stock: {{ number_format($product->qty) }}</small>
             @else
             <small class="d-block pb-2 text-danger">Product is out of stock.</small>
             @endif
             <small class="d-block pb-2 text-muted">{{ $product->sold }} Sold |
               {{ $product->reviews->count(); }} @if($product->reviews->count() <= 1) Review @else Reviews @endif</small>
-              <div class="row text-center">
-                <div class="col">
+              <div class="d-flex align-items-center flex-wrap">
+
+                <div class="col2">
                   <a href="{{ route('show_product', $product->slug) }}"
-                  class="btn btn-sm btn-custom-primary">Detail</a>
+                  class="text-card-detail">See Details</a>
                 
                 </div>
-                <div class="col">
+
+                <div class="col1 text-center">
                   <form class="d-inline" action="{{ route('cart.store') }}" method="POST">
                   @csrf
                   <input name="slug" type="hidden" value="{{ $product->slug }}">
@@ -153,6 +144,19 @@ if(auth()->user() != NULL) {
                     <i class="bi bi-cart-plus-fill"></i>
                   </button>
                 </form>
+                </div>
+
+                <div class="col1 text-center">
+                  <form class="d-block" action="/wishlist" method="POST">
+                    @csrf
+                    @if(in_array($product->id, $check_wishlist))
+                    @method('DELETE')
+                    @endif
+                    <input name="slug" type="hidden" value="{{ $product->slug }}">
+                    <button class="btn btn-sm btn-custom-primary2">
+                      <i class="white bi bi-heart-fill @if(!in_array($product->id, $check_wishlist)) text-secondary @else text-danger @endif"></i>
+                    </button>
+                  </form>
                 </div>
               </div>
                 
