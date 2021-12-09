@@ -14,16 +14,17 @@ $active = 'login';
                 <div class="card m-0 p-0 bg-black">
                     <div class="card-body p-0">
                         <div class="row">
-                            <div class="col">
+                            <div class="col p-0">
                                 <img src="{{ asset('images/img/welcome-image1.png') }}" alt="">
                             </div>
-                            <div class="col">
+                            <div class="col p-5">
+                                <h2>Login</h2>
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="form-group row py-1">
                                         <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
             
-                                        <div class="col-md-6">
+                                        <div class="col-md-7">
                                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                                 name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
             
@@ -39,7 +40,7 @@ $active = 'login';
                                         <label for="password"
                                             class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
             
-                                        <div class="col-md-6">
+                                        <div class="col-md-7">
                                             <input id="password" type="password"
                                                 class="form-control @error('password') is-invalid @enderror" name="password"
                                                 autocomplete="current-password">
@@ -50,19 +51,14 @@ $active = 'login';
                                             </span>
                                             @enderror
             
-                                            <div class="form-check float-right mt-2">
-                                                <input class="form-check-input" onclick="showPassword()" type="checkbox"
-                                                    id="show-password">
-            
-                                                <label class="form-check-label" for="show-password">
-                                                    <small>Show Password</small>
-                                                </label>
-                                            </div>
+
                                         </div>
                                     </div>
             
                                     <div class="form-group row">
-                                        <div class="col-md-6 offset-md-4">
+                                        
+            
+                                        <div class="col offset-md-4 p-0">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                                     {{ old('remember') ? 'checked' : '' }}>
@@ -72,28 +68,37 @@ $active = 'login';
                                                 </label>
                                             </div>
                                         </div>
-                                    </div>
-            
-                                    <div class="form-group row mb-0">
-                                        <div class="col-md-8 offset-md-4">
-                                            <button type="submit" class="btn btn-dark btn-custom-primary">
-                                                Login
-                                            </button>
-            
+                                        
+
+                                        <div class="col p-0">
                                             @if (Route::has('password.request'))
-                                            <a target="_blank" class="btn btn-link" href="{{ route('password.request') }}">
+                                            <a id="forgot-pass" target="_blank" class="" href="{{ route('password.request') }}">
                                                 <small>{{ __('Forgot Your Password?') }}</small>
                                             </a>
                                             @endif
                                         </div>
                                     </div>
             
-                                    <div class="text-center my-3">
-                                        <p><small>or</small></p>
-                                        <a class="btn btn-danger font-weight-bold" href="{{ '/auth/redirect' }}"><i
-                                                class="bi bi-google"></i> Login with
-                                            Google</a>
+                                    <div class="form-group row mb-0">
+                                        <div class="col-md-7 offset-md-4 p-0">
+                                            <button type="submit" class="btn-dark-round-outline">
+                                                Login
+                                            </button>
+                                        </div>
                                     </div>
+                                    <div class="form-group row mb-0">
+                                        <div class="col-md-7 offset-md-4 p-0">
+                                            <div class="text-center my-3">
+                                                <p><small>or</small></p>
+                                                
+                                                    <a class="btn-yellow-round-outline" href="{{ '/auth/redirect' }}"><i
+                                                    class="bi bi-google"></i> Login with Google</a>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
             
                                     <div class="row">
                                         <a href="{{ route('register') }}" class="text-center"><small><span class="text-dark">Don't

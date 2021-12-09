@@ -105,6 +105,42 @@ a.btn-custom-primary:hover {
     background-color: #000000 !important;
 }
 
+.btn-dark-round-outline {
+    border: none;
+    border-radius: 36px;
+    padding: 10px 22px;
+    background: none;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s all ease;
+    width: 100%;
+}
+
+.btn-dark-round-outline:hover {
+    border: 1px solid white;
+    background-color: white;
+    color: black;
+}
+
+.btn-yellow-round-outline {
+    border: none;
+    border-radius: 36px;
+    padding: 10px 22px;
+    background: #D4AF37;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s all ease;
+    width: 100%;
+}
+
+.btn-yellow-round-outline:hover,#login-page .google:hover {
+    border: 1px solid white;
+    background-color: white;
+    color:#D4AF37;
+}
+
 /* color */
 
 .white{
@@ -442,9 +478,29 @@ footer {
     border-radius: 10px;
 }
 
-#login-page .card{
+#login-page .box{
     border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+
 }
+
+#login-page .row{
+padding: 0;
+
+}
+
+#login-page #forgot-pass small{
+    color: #D4AF37 !important;
+    text-decoration: underline;
+}
+
+
+
+#login-page .google{
+    color : black !important;
+}
+
+
 @media only screen and (max-width: 992px) {
     #about img{
         width: 300px;
