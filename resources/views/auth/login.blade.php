@@ -72,7 +72,7 @@ $active = 'login';
 
                                         <div class="col p-0">
                                             @if (Route::has('password.request'))
-                                            <a id="forgot-pass" target="_blank" class="" href="{{ route('password.request') }}">
+                                            <a target="_blank" class="yellow-underline" href="{{ route('password.request') }}">
                                                 <small>{{ __('Forgot Your Password?') }}</small>
                                             </a>
                                             @endif
@@ -87,26 +87,33 @@ $active = 'login';
                                         </div>
                                     </div>
                                     <div class="form-group row mb-0">
-                                        <div class="col-md-7 offset-md-4 p-0">
+                                        <div class="col-md-7 offset-md-4 p-0 mb-2">
                                             <div class="text-center my-3">
-                                                <p><small>or</small></p>
+                                                <p class=""><small>or</small></p>
                                                 
-                                                    <a class="btn-yellow-round-outline" href="{{ '/auth/redirect' }}"><i
-                                                    class="bi bi-google"></i> Login with Google</a>
+                                                    
                                                 
                                                 
                                             </div>
                                         </div>
                                     </div>
-
-            
-                                    <div class="row">
-                                        <a href="{{ route('register') }}" class="text-center"><small><span class="text-dark">Don't
-                                                    have an account
-                                                    yet?</span>
-                                                Register
-                                                here</small></a>
+                                    <div class="form-group row mb-3">
+                                        <div class="col-md-7 offset-md-4 p-0 text-center">
+                                            <a class="btn-yellow-round-outline" href="{{ '/auth/redirect' }}"><i
+                                                    class="bi bi-google"></i> Login with Google</a>
+                                        </div>
                                     </div>
+
+                                    <div class="col-md-7 offset-md-4 p-0">
+                                        <div class="row">
+                                            <a href="{{ route('register') }}" class="text-center">
+                                                <small class="text-dark">Don't have an account?</small>
+                                                <small class="yellow-underline">Sign Up</small>
+                                            </a>
+                                            
+                                        </div>  
+                                    </div>
+                                    
             
                                     {{-- <a class="btn btn-danger" href="{{ '/auth/redirect' }}">Login with Google</a> --}}
             
