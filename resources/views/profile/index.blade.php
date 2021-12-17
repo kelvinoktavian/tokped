@@ -3,29 +3,28 @@
 @section('content')
 
 <x-alert />
-
-<div class="flex justify-center">
-  <h4 class="pb-4">My {{ $title }}</h4>
+<section id="profile-page">
+  <div class="flex justify-center container p-5">
+  <h2 class="pb-4">{{ $title }}</h2>
 
   <div class="card p-4">
-    <div class="card-body">
+    <div class="">
       <form action="{{ route('profile.update', $user->username) }}" method="POST" enctype="multipart/form-data">
 
         @csrf
         @method('PATCH')
 
-        <div class="d-flex align-items-start py-3 border-bottom">
+        <div class="text-center p-0">
 
-          <div class="form-group">
-            <label for="image_path">Profle Picture</label>
+          
 
-            <div class="d-flex align-items-end">
+            <div class="d-flex align-items-center">
               <div class="image-cropper">
                 <img src="{{ asset('images/user/' . $user->image_path) }}" width="200px" id="output"
                   class="profile-picture img-circle img-lg" />
               </div>
 
-              <div class="input-group ml-3">
+              <div class=" ms-5">
                 <div class="custom-file">
                   <input type="file" accept="image/*" onchange="loadFile(event)" name="image_path" type="file"
                     class="custom-file-input" id="image_path" value="{{ old('image_path') }}">
@@ -45,7 +44,7 @@
             <small class="text-danger"><i class="bi bi-exclamation-circle"></i> {{ $message }}</small>
             @enderror
           </div>
-        </div>
+        
 
         <div class="mt-2">
           <div class="row my-2">
@@ -98,4 +97,6 @@
     </div>
   </div>
 </div>
+</section>
+
 @endsection
