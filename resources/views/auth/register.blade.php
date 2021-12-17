@@ -9,7 +9,7 @@ $active = 'register';
 
 <x-alert />
 
-<section id="login-page">
+<section id="register-page">
     <div class="container p-5">
         <div class="row justify-content-center">
                 <div class="card m-0 p-0 bg-black">

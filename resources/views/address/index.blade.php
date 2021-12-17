@@ -4,8 +4,8 @@
 
 <x-alert />
 
-<div class="flex justify-center">
-  <h4 class="pb-4">My {{ $title }}</h4>
+<div class="flex justify-center container p-5">
+  <h2 class="pb-4">{{ $title }}</h2>
 
   <div class="card p-4">
     <div class="card-body">
@@ -80,8 +80,10 @@
             </div>
           </div>
 
-          <div class="mt-3">
-            <button type="submit" class="btn btn-dark btn-custom-primary">Save</button>
+          <div class="mt-3 row">
+            <div class="col p-0"></div>
+            <button type="submit" class="col btn-dark-gold-round-outline">Save</button>
+            <div class="col p-0"></div>
           </div>
         </div>
       </form>

@@ -109,7 +109,7 @@ a.btn-custom-primary:hover {
     border: none;
     border-radius: 36px;
     padding: 10px 22px;
-    background: none;
+    background-color: black;
     border: 1px solid white;
     color: white;
     text-decoration: none;
@@ -120,6 +120,24 @@ a.btn-custom-primary:hover {
 .btn-dark-round-outline:hover {
     border: 1px solid white;
     background-color: white;
+    color: black;
+}
+
+.btn-dark-gold-round-outline {
+    border: none;
+    border-radius: 36px;
+    padding: 10px 22px;
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s all ease;
+    width: 100%;
+}
+
+.btn-dark-gold-round-outline:hover {
+    border: 1px solid white;
+    background-color: #D4AF37;
     color: black;
 }
 
