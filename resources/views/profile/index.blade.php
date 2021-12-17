@@ -3,28 +3,29 @@
 @section('content')
 
 <x-alert />
-<section id="profile-page">
-  <div class="flex justify-center container p-5">
+
+<div class="flex justify-center container p-5">
   <h2 class="pb-4">{{ $title }}</h2>
 
   <div class="card p-4">
-    <div class="">
+    <div class="card-body">
       <form action="{{ route('profile.update', $user->username) }}" method="POST" enctype="multipart/form-data">
 
         @csrf
         @method('PATCH')
 
-        <div class="text-center p-0">
+        <div class="d-flex align-items-start py-3 border-bottom">
 
-          
+          <div class="form-group text-center mx-auto">
+            <label for="image_path">Profile Picture</label>
 
-            <div class="d-flex align-items-center">
-              <div class="image-cropper">
+            <div class="d-flex flex-column align-items-end">
+              <div class="image-cropper d-block mx-auto py-3">
                 <img src="{{ asset('images/user/' . $user->image_path) }}" width="200px" id="output"
                   class="profile-picture img-circle img-lg" />
               </div>
 
-              <div class=" ms-5">
+              <div class="input-group ml-3">
                 <div class="custom-file">
                   <input type="file" accept="image/*" onchange="loadFile(event)" name="image_path" type="file"
                     class="custom-file-input" id="image_path" value="{{ old('image_path') }}">
@@ -44,7 +45,7 @@
             <small class="text-danger"><i class="bi bi-exclamation-circle"></i> {{ $message }}</small>
             @enderror
           </div>
-        
+        </div>
 
         <div class="mt-2">
           <div class="row my-2">
@@ -69,7 +70,6 @@
             </div>
 
           </div>
-
           <div class="row my-2">
             <div class="col-md-6">
               <label>Email</label>
@@ -89,14 +89,16 @@
             </div>
           </div>
 
-          <div class="mt-3">
-            <button type="submit" class="btn btn-dark btn-custom-primary">Save</button>
+          <div class="mt-3 row">
+            
+            <button type="submit" class=" col btn-dark-gold-round-outline">Save</button>
+            <div class="col p-0"></div>
+            <div class="col p-0"></div>
+            <div class="col p-0"></div>
           </div>
         </div>
       </form>
     </div>
   </div>
 </div>
-</section>
-
 @endsection

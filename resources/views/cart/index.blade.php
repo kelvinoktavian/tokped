@@ -5,14 +5,14 @@
 <x-alert />
 
 @if ($carts->count() != 0)
-<div class="container padding-bottom-3x mb-1">
+<div class="container padding-bottom-3x mb-1 p-5">
 
   <div class="d-flex justify-content-between pb-4 border-bottom">
-    <h4>My {{ $title }}</h4>
+    <h2>My {{ $title }}</h2>
     <form action="{{ route('cart.clear') }}" method="POST">
       @csrf
       @method('DELETE')
-      <button type="submit" class="btn btn-dark btn-custom-primary">Clear Cart</button>
+      <button type="submit" class="btn-dark-gold-round-outline">Clear Cart</button>
     </form>
   </div>
 
@@ -61,7 +61,7 @@
             <form action="{{ route('cart.destroy', $cart->id) }}" method="POST">
               @csrf
               @method('DELETE')
-              <button type="submit" class="btn btn-link" title="Remove Cart"><i
+              <button type="submit" class="btn btn-link " title="Remove Cart"><i
                   class="fa fa-trash text-secondary fa-md"></i></button>
             </form>
           </td>
