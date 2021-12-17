@@ -4,10 +4,10 @@
 
 <x-alert />
 
-<div class="container">
+<div class="container p-5">
   <div class="row justify-content-center">
     <div class="col-md-7">
-      <h4 class="pb-4">{{ $title }}</h4>
+      <h2 class="pb-4">{{ $title }}</h2>
       <div class="card">
         <div class="card-body py-5">
           <form method="POST" action="{{ route('change-password.store') }}">
@@ -59,8 +59,8 @@
             </div>
 
             <div class="form-group row mb-0">
-              <div class="col-md-8 offset-md-4">
-                <button type="submit" class="btn btn-dark btn-custom-primary">
+              <div class="col-md-6 offset-md-4">
+                <button type="submit" class="btn-dark-gold-round-outline">
                   Update Password
                 </button>
               </div>
