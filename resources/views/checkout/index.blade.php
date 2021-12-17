@@ -2,6 +2,8 @@
 
 @section('content')
 
+<div class="container p-5">
+
 <div class="row justify-content-center">
   <div class="col-md-8">
     @if ($message = Session::get('success'))
@@ -22,7 +24,7 @@
 
 <div class="container padding-bottom-3x mb-1">
 
-  <h4 class="pb-4 border-bottom">{{ $title }}</h4>
+  <h2 class="pb-4 border-bottom">{{ $title }}</h2>
 
   <div class="card">
     <div class="card-header">
@@ -88,7 +90,7 @@
     </div>
   </div>
 
-  <div class="shopping-cart-footer">
+  <div class="d-flex justify-content-between">
     <div class="column">
       <a class="btn text-decoration-none btn-custom-primary" href="{{ route('cart.index') }}">Back to
         Cart</a>
@@ -102,5 +104,9 @@
   </div>
 
 </div>
+
+</div>
+
+
 
 @endsection
