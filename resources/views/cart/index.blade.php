@@ -77,14 +77,14 @@
     </div>
   </div>
 
-  <div class="shopping-cart-footer">
+  <div class="d-flex justify-content-between">
     <div class="column">
-      <a class="btn text-decoration-none btn-custom-primary" href="{{ route('product') }}"><i
+      <a class="btn-dark-gold-round-outline" href="{{ route('product') }}"><i
           class="icon-arrow-left"></i>Back to Shopping</a>
     </div>
     <div class="column">
       <form action="{{ route('checkout') }}" method="GET">
-        <button type="submit" class="btn btn-dark btn-custom-primary">Checkout</button>
+        <button type="submit" class=" btn-yellow-round-outline">Checkout</button>
       </form>
     </div>
   </div>
